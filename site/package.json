@@ -9,8 +9,10 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@catppuccin/tailwindcss": "^1.0.0",
+    "@fontsource/atkinson-hyperlegible": "^5.2.8",
+    "@fontsource/maple-mono": "^5.2.6",
     "@tailwindcss/vite": "^4.1.18",
-    "astro": "^5.16.9",
-    "tailwindcss": "^4.1.18"
+    "astro": "^5.16.9"
   }
 }
