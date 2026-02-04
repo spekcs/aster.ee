@@ -2,7 +2,17 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
-const { pageTitle } = Astro.props;
+import '@fontsource/atkinson-hyperlegible/400.css';
+import '@fontsource/maple-mono/400.css';
+
+interface Props {
+  pageTitle?: string,
+  blurb?: any,
+  blahaj: boolean;
+}
+
+const { pageTitle, blurb, blahaj } = Astro.props;
+
 ---
 <html lang="en">
   <head>
@@ -13,9 +23,12 @@ const { pageTitle } = Astro.props;
     <title>{pageTitle}</title>
   </head>
   <body>
-    <Header />
+    <Header pageTitle={pageTitle} blurb={blurb} blahaj={blahaj}/>
+
     <slot />
+
     <Footer />
+
     <script>
       import "../scripts/menu.js";
     </script>

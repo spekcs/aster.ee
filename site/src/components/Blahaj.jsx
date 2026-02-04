@@ -5,8 +5,8 @@ const Box = () => {
   const ref = useRef();
 
   useFrame(() => {
-    ref.current.position.x += 0.002;
-    ref.current.position.y += 0.002;
+    ref.current.rotation.x += 0.002;
+    ref.current.rotation.y += 0.002;
   });
 
   return (

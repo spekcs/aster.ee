@@ -1,8 +1,12 @@
 @import 'tailwindcss';
-@import '@catppuccin/tailwindcss/mocha.css';
+@import '@catppuccin/tailwindcss/macchiato.css';
 
 @theme {
   --font-sans: 'Atkinson Hyperlegible', sans-serif;
   --font-mono: 'Maple Mono', monospace;
+}
+
+body {
+  @apply bg-ctp-base text-ctp-text selection:bg-ctp-mauve selection:text-ctp-crust;
 }
 

@@ -1,16 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { Code } from 'astro:components';
-import '@fontsource/atkinson-hyperlegible';
-import '@fontsource/maple-mono';
-import Latex from '../components/Latex.astro';
-import Blahaj from '../components/Blahaj.jsx'
+import { getCollection, getEntry } from 'astro:content';
+
 const pageTitle = "Home Page";
+
+const blurb = await getEntry('blurbs', 'index');
 ---
 
-<BaseLayout pageTitle={pageTitle}>
-	<h2 class="text-ctp-mauve text-3xl">My  blog subtitle @@ 00</h2>
-  <p class="text-xl">Does this actually look good alsdkfjalskdjflkasdjflasd</p>
-  <Code code={`int main() { int i = 0; return 1 }`} lang="c" theme="catppuccin-mocha"/>
-  <p>Test inline <Latex formula='E=mc^2' layout=''/>.</p>
+<BaseLayout pageTitle={"Aster's site"} blurb={blurb} blahaj={true}>
 </BaseLayout>

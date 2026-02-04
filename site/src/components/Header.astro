@@ -1,10 +1,32 @@
 ---
-import Navigation from "./Navigation.astro";
-import Menu from "./Menu.astro";
+import { render } from 'astro:content';
+import Blahaj from './Blahaj.jsx'
+
+interface Props {
+  pageTitle?: string,
+  blurb?: any,
+  blahaj: boolean
+}
+
+const { pageTitle, blurb, blahaj } = Astro.props;
+let Content;
+if (blurb) {
+  ({ Content } = await render(blurb));
+}
 ---
 
 <header>
-  <nav><Navigation />
-<Menu></Menu>
-</nav>
+  <div>
+    <div>
+      <div class="flex text-5xl font-semibold gap-x-6">
+        <a href="/">𖤐</a>
+        <h1> { pageTitle } </h1>
+      </div>
+      <div>
+        {blurb && <Content/>}
+      </div>
+    </div>
+
+    {blahaj && <Blahaj client:load/>}
+  </div>
 </header>
