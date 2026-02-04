@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getEntry } from 'astro:content';
 import PageSelector from '../components/PageSelector.astro';
+import Button from '../components/Button.astro';
 
 const allPosts = Object.values(import.meta.glob('./posts/*.{md,mdx}', { eager: true}));
 const pageTitle = "Aster's writings 🪶"
@@ -11,6 +12,7 @@ const blurb = await getEntry('blurbs', 'blog');
 <BaseLayout pageTitle={pageTitle}, blurb={blurb} blahaj={true}>
 
   <PageSelector page="blog"/>
+
 
     <p>This is where I will post about my journey learning Astro.</p>
     <ul>

@@ -7,4 +7,4 @@ interface Props {
 
 const { buttonText, href, active } = Astro.props;
 ---
-<a href={href} class:list={["border-surface0 bg-base  focus-visible:border-accent group block overflow-hidden rounded border shadow-lg p-2 text-center font-bold text-xl", active && "bg-ctp-mauve text-ctp-crust pointer-events-none", !active && "transition-all duration-300 hover:shadow-xl focus:outline-none hover:border-ctp-mauve"]}>{buttonText}</a>
+<a href={active ? "/" : href} class:list={["border-surface0 bg-ctp-base  focus-visible:border-accent group block overflow-hidden rounded border shadow-lg p-2 text-center font-bold text-xl transition-all duration-300 hover:border-ctp-mauve", active && "bg-ctp-mauve text-ctp-crust"]}>{buttonText}</a>
