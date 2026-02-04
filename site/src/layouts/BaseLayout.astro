@@ -15,7 +15,9 @@ const { pageTitle, blurb, blahaj } = Astro.props;
 
 ---
 <html lang="en">
-  <head>
+  <head
+      class="flex flex-col scroll-smooth"
+      lang="en">
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
@@ -25,7 +27,9 @@ const { pageTitle, blurb, blahaj } = Astro.props;
   <body>
     <Header pageTitle={pageTitle} blurb={blurb} blahaj={blahaj}/>
 
-    <slot />
+    <main>
+      <slot />
+    </main>
 
     <Footer />
 

@@ -4,7 +4,15 @@
 @theme {
   --font-sans: 'Atkinson Hyperlegible', sans-serif;
   --font-mono: 'Maple Mono', monospace;
+
+  --text-accent: --text-ctp-mauve;
 }
+
+.text-accent {
+  @apply text-ctp-mauve
+}
+
+
 
 body {
   @apply bg-ctp-base text-ctp-text selection:bg-ctp-mauve selection:text-ctp-crust;
@@ -28,8 +36,6 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-
-  animation: enby-title 3s ease 0.3s both;
 }
 
 @keyframes enby-title {
