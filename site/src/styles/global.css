@@ -10,3 +10,56 @@ body {
   @apply bg-ctp-base text-ctp-text selection:bg-ctp-mauve selection:text-ctp-crust;
 }
 
+.enby-text {
+  background: linear-gradient(
+    80deg,
+    var(--color-ctp-text) 0%,
+    var(--color-ctp-text) 30%,
+    #FCF434,
+    #FFFFFF,
+    #9C59D1,
+    #2C2C2C,
+    var(--color-ctp-text) 80%,
+    var(--color-ctp-text) 100%
+  );
+  overflow: hidden;
+  background-size: 600% 100%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: enby-title 3s ease 0.3s both;
+}
+
+@keyframes enby-title {
+  0% {
+    background-position: 0% 100%;
+    text-shadow: none;
+  }
+  100% {
+    background-position: 100% 100%;
+    text-shadow: none;
+  }
+}
+
+@keyframes enby-title-hover {
+  0% {
+    background-position: 0% 100%;
+    text-shadow: none;
+  }
+  100% {
+    background-position: 100% 100%;
+    text-shadow: none;
+  }
+}
+
+.enby-text.is-animating {
+  animation: enby-title-hover 3s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enby-text {
+    animation: none;
+  }
+}

@@ -20,13 +20,16 @@ if (blurb) {
     <div>
       <div class="flex text-5xl font-semibold gap-x-6">
         <a href="/">𖤐</a>
-        <h1> { pageTitle } </h1>
+        <h1 class="enby-text" data-text={pageTitle}>{ pageTitle }</h1>
       </div>
-      <div>
+      <div class="blurb-content">
         {blurb && <Content/>}
       </div>
     </div>
 
     {blahaj && <Blahaj client:load/>}
   </div>
+<script>
+  import '../util/title.js';
+</script>
 </header>

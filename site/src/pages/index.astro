@@ -2,10 +2,10 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection, getEntry } from 'astro:content';
 
-const pageTitle = "Home Page";
+const pageTitle = "Aster's site";
 
 const blurb = await getEntry('blurbs', 'index');
 ---
 
-<BaseLayout pageTitle={"Aster's site"} blurb={blurb} blahaj={true}>
+<BaseLayout pageTitle={pageTitle} blurb={blurb} blahaj={true}>
 </BaseLayout>
