@@ -21,10 +21,8 @@ const Box = () => {
 
 export default function Blahaj({}) {
   return (
-    <div>
-      <Canvas>
+      <Canvas flat linear>
         <Box />
       </Canvas>
-    </div>
   );
 }

@@ -16,18 +16,20 @@ if (blurb) {
 ---
 
 <header
-  class="mx-auto pt-8 px-8 w-full flex max-w-7xl flex-row">
+  class="mx-auto pt-8 px-8 w-full flex max-w-7xl flex-row justify-between">
     <div>
       <div class="flex text-5xl font-semibold gap-x-6 leading-[1.4]">
         <a href="/">𖤐</a>
-        <h1 class="enby-text" data-text={pageTitle}>{ pageTitle }</h1>
+        <h1 class="enby-text text-nowrap" data-text={pageTitle}>{ pageTitle }</h1>
       </div>
       <div class="blurb-content">
+    
         {blurb && <Content/>}
       </div>
     </div>
-
-    {blahaj && <Blahaj client:load/>}
+    <div style={{ width: "25vw", height: "30vh"}}>
+      {blahaj && <Blahaj client:load/>}
+    </div>
 <script>
   import '../util/title.js';
 </script>
