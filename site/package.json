@@ -11,12 +11,18 @@
   "dependencies": {
     "@astrojs/mdx": "^4.3.13",
     "@astrojs/preact": "^4.1.3",
+    "@astrojs/react": "^4.4.2",
     "@catppuccin/tailwindcss": "^1.0.0",
     "@fontsource/atkinson-hyperlegible": "^5.2.8",
     "@fontsource/maple-mono": "^5.2.6",
+    "@react-three/fiber": "^9.5.0",
     "@tailwindcss/vite": "^4.1.18",
+    "@types/react": "^19.2.10",
+    "@types/react-dom": "^19.2.3",
     "astro": "^5.16.9",
     "katex": "^0.16.28",
-    "preact": "^10.28.3"
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "three": "^0.182.0"
   }
 }
