@@ -1,7 +1,8 @@
 @import 'tailwindcss';
 @import '@catppuccin/tailwindcss/mocha.css';
 
-* {
-  font-family: 'Atkinson Hyperlegible', sans-serif;
+@theme {
+  --font-sans: 'Atkinson Hyperlegible', sans-serif;
+  --font-mono: 'Maple Mono', monospace;
 }
 

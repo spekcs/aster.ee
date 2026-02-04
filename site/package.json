@@ -9,10 +9,14 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/mdx": "^4.3.13",
+    "@astrojs/preact": "^4.1.3",
     "@catppuccin/tailwindcss": "^1.0.0",
     "@fontsource/atkinson-hyperlegible": "^5.2.8",
     "@fontsource/maple-mono": "^5.2.6",
     "@tailwindcss/vite": "^4.1.18",
-    "astro": "^5.16.9"
+    "astro": "^5.16.9",
+    "katex": "^0.16.28",
+    "preact": "^10.28.3"
   }
 }
