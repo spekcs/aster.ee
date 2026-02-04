@@ -1,19 +1,16 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { getCollection, getEntry } from 'astro:content';
-import Button from "../components/Button.astro"
+import { getEntry } from 'astro:content';
+import PageSelector from "../components/PageSelector.astro";
 
 const pageTitle = "Aster's site";
 
 const blurb = await getEntry('blurbs', 'index');
 ---
 
+
 <BaseLayout pageTitle={pageTitle} blurb={blurb} blahaj={true}>
-  <div class="grid grid-cols-3 gap-3 mx-auto px-8 pt-4 w-full max-w-7xl">
-    <Button buttonText="Blog" href="/blog"/>
-    <Button buttonText="Projects" href="/projects"/>
-    <Button buttonText="Stuff" href="/stuff"/>
-  </div>
+  <PageSelector page={"index"}/>
 </BaseLayout>
 
 

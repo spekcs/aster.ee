@@ -24,10 +24,10 @@ const { pageTitle, blurb, blahaj } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
   </head>
-  <body>
+  <body class="mx-auto flex min-h-screen max-w-[90%] flex-col md:max-w-[80%]">
     <Header pageTitle={pageTitle} blurb={blurb} blahaj={blahaj}/>
 
-    <main>
+    <main class=>
       <slot />
     </main>
 

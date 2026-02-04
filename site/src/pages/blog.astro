@@ -1,11 +1,20 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const allPosts = Object.values(import.meta.glob('./posts/*.md', { eager: true}));
+import { getEntry } from 'astro:content';
+import PageSelector from '../components/PageSelector.astro';
+
+const allPosts = Object.values(import.meta.glob('./posts/*.{md,mdx}', { eager: true}));
 const pageTitle = "Aster's writings 🪶"
+
+const blurb = await getEntry('blurbs', 'blog');
 ---
-  <BaseLayout pageTitle={pageTitle}>
+<BaseLayout pageTitle={pageTitle}, blurb={blurb} blahaj={true}>
+
+  <PageSelector page="blog"/>
+
     <p>This is where I will post about my journey learning Astro.</p>
     <ul>
       {allPosts.map((post: any) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)}
     </ul>
 </BaseLayout>
+

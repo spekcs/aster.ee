@@ -1,0 +1,15 @@
+---
+import Button from "./Button.astro"
+
+interface Props {
+  page: string;
+}
+
+const { page } = Astro.props;
+
+---
+  <div class="grid grid-cols-3 gap-3 mx-auto px-8 pt-4 w-full max-w-7xl">
+    <Button buttonText="Blog" href="/blog" active={page === "blog"}/>
+    <Button buttonText="Projects" href="/projects" active={page === "projects"}/>
+    <Button buttonText="Stuff" href="/stuff" active={page === "stuff"}/>
+  </div>
