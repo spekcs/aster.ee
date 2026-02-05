@@ -16,18 +16,18 @@ if (blurb) {
 ---
 
 <header
-  class="mx-auto pt-8 px-8 w-full flex max-w-6xl flex-row justify-between">
-    <div>
+  class="mx-auto mt-8 w-full flex max-w-6xl flex-row justify-between box-border">
+    <div class="max-w-[66%]">
       <div class="flex text-5xl font-semibold gap-x-6 leading-[1.4]">
         <a href="/">𖤐</a>
         <h1 class="enby-text text-nowrap" data-text={pageTitle}>{ pageTitle }</h1>
       </div>
-      <div class="blurb-content max-w-4xl">
+      <div class="blurb-content">
     
         {blurb && <Content/>}
       </div>
     </div>
-    <div style={{ width: "20vw", height: "25vh" }} >
+    <div class="min-w-[33%]">
       {blahaj && <Blahaj client:load transition:persist/>}
     </div>
 
