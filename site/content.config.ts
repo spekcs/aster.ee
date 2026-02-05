@@ -15,4 +15,16 @@ const blurbsCollection = defineCollection({
   })
 });
 
-export const collections = { blurbsCollection };
+const postsCollection = defineCollection({
+  loader: mdLoader('posts'),
+  schema: z.object({
+    title: z.string(),
+    description: z.string().optional(),
+    draft: z.boolean().optional().default(false),                     
+    created: z.string().or(z.date()),
+    modified: z.string().or(z.date()).optional(),
+    tags: z.array(z.string())
+  })
+})
+
+export const collections = { blurbs: blurbsCollection, posts: postsCollection };
