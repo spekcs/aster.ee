@@ -13,10 +13,22 @@ const blurb = await getEntry('blurbs', 'blog');
 
   <PageSelector page="blog"/>
 
-
-    <p>This is where I will post about my journey learning Astro.</p>
-    <ul>
-      {allPosts.map((post: any) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)}
-    </ul>
+  <div class="mx-auto pb-4 w-full max-w-5xl flex flex-row box-border justify-between">
+    <div class="min-w-[66%] flex flex-col">
+      <div class="grid grid-cols-3 gap-4">
+        <Button buttonText="Cs/Math" href="/blog" active={false}/>
+        <Button buttonText="Lit/Phil" href="/projects" active={false}/>
+        <Button buttonText="Other" href="/stuff" active={false}/>
+      </div>
+      <div>
+        <ul>
+          {allPosts.map((post: any) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)}
+        </ul>
+      </div>
+    </div>
+    <div class="min-w-[33%]">
+      <p class="text-center text-xl font-bold pt-3">Filter by tag:</p>
+    </div>
+  </div>
 </BaseLayout>
 

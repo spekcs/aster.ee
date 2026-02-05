@@ -73,6 +73,7 @@ body {
   :is(h2) {
     @apply text-ctp-mauve;
     @apply text-3xl;
+    @apply pb-4;
   }
 
   :is(a) {
