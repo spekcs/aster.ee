@@ -4,6 +4,7 @@ import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 import '@fontsource/atkinson-hyperlegible/400.css';
 import '@fontsource/maple-mono/400.css';
+import { ClientRouter } from 'astro:transitions';
 
 interface Props {
   pageTitle?: string,
@@ -23,6 +24,8 @@ const { pageTitle, blurb, blahaj } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+
+    <ClientRouter />
   </head>
   <body class="mx-auto flex min-h-screen max-w-[90%] flex-col md:max-w-[80%]">
     <Header pageTitle={pageTitle} blurb={blurb} blahaj={blahaj}/>
@@ -33,7 +36,7 @@ const { pageTitle, blurb, blahaj } = Astro.props;
 
     <Footer />
 
-    <script>
+    <script is:inline>
       import "../scripts/menu.js";
     </script>
   </body>

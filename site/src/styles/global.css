@@ -12,8 +12,6 @@
   @apply text-ctp-mauve
 }
 
-
-
 body {
   @apply bg-ctp-base text-ctp-text selection:bg-ctp-mauve selection:text-ctp-crust;
 }
@@ -30,7 +28,6 @@ body {
     var(--color-ctp-text) 80%,
     var(--color-ctp-text) 100%
   );
-  overflow: hidden;
   background-size: 600% 100%;
   background-repeat: no-repeat;
   -webkit-background-clip: text;
@@ -68,4 +65,23 @@ body {
   .enby-text {
     animation: none;
   }
+}
+
+.blurb-content {
+  @apply text-xl;
+
+  :is(h2) {
+    @apply text-ctp-mauve;
+    @apply text-3xl;
+  }
+
+  :is(a) {
+    @apply underline;
+    @apply text-ctp-mauve;
+  }
+
+  :is(em, strong) {
+    @apply text-ctp-yellow;
+  }
+
 }

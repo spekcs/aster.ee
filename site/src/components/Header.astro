@@ -16,21 +16,33 @@ if (blurb) {
 ---
 
 <header
-  class="mx-auto pt-8 px-8 w-full flex max-w-7xl flex-row justify-between">
+  class="mx-auto pt-8 px-8 w-full flex max-w-6xl flex-row justify-between">
     <div>
       <div class="flex text-5xl font-semibold gap-x-6 leading-[1.4]">
         <a href="/">𖤐</a>
         <h1 class="enby-text text-nowrap" data-text={pageTitle}>{ pageTitle }</h1>
       </div>
-      <div class="blurb-content">
+      <div class="blurb-content max-w-4xl">
     
         {blurb && <Content/>}
       </div>
     </div>
-    <div style={{ width: "25vw", height: "30vh"}}>
-      {blahaj && <Blahaj client:load/>}
+    <div style={{ width: "20vw", height: "25vh" }} >
+      {blahaj && <Blahaj client:load transition:persist/>}
     </div>
-<script>
-  import '../util/title.js';
+
+<script is:inline data-astro-rerun>
+  document.querySelectorAll('.enby-text').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      if (el.classList.contains('is-animating')) {
+        return;
+      }
+      el.classList.add('is-animating');    
+      setTimeout(() => {
+        el.classList.remove('is-animating');
+        void el.offsetWidth;                
+      }, 3000);
+    });
+  });
 </script>
 </header>
