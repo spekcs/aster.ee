@@ -85,4 +85,17 @@ body {
     @apply text-ctp-yellow;
   }
 
+  :is(p) {
+    @apply pb-4;
+  }
+
+  :is(hr) {
+    @apply pb-2
+  }
+
+  :is(ul) {
+    @apply text-ctp-green;
+    @apply text-sm
+  }
+
 }

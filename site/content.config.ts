@@ -25,6 +25,6 @@ const postsCollection = defineCollection({
     modified: z.string().or(z.date()).optional(),
     tags: z.array(z.string())
   })
-})
+});
 
-export const collections = { blurbs: blurbsCollection, posts: postsCollection };
+export const collections = { blurbs: blurbsCollection, posts: postsCollection, };
