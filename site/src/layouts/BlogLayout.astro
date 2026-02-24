@@ -38,7 +38,7 @@ const blurb = await getEntry('blurbs', 'blog');
       </div>
       <div>
         <ul>
-          {posts.map((post: any) => <li><a href={`/post/${post.id}`}>{post.title}{post.data.title}</a> | {post.data?.description} | {post.id}</li>)}
+          {posts.filter((post) => !post.data.draft).map((post: any) => <li><a href={`/post/${post.id}`}>{post.title}{post.data.title}</a> | {post.data?.description} | {post.id}</li>)}
         </ul>
       </div>
     </div>

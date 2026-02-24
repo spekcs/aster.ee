@@ -1,0 +1,48 @@
+---
+import type { GetStaticPaths, GetStaticPathsOptions } from "astro";
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BlogLayout from "../../../layouts/BlogLayout.astro";
+
+
+interface Props {
+  page: {
+    data: Array<{
+      params: {
+        id: string;
+      };
+      props: CollectionEntry<'posts'>;
+    }>;
+  };
+}
+
+const { page } = Astro.props;
+const { tag } = Astro.params;
+
+const posts = page.data.map((p) => p.props);
+
+export const getStaticPaths = (async ({ paginate }: GetStaticPathsOptions) => {
+  const postsCollection = await getCollection('posts');
+
+  const posts = postsCollection.map((post: any) => ({
+    params: {id: post.id},
+    props: {...post}
+  }))
+
+  const tags = Array.from(new Set(postsCollection.flatMap((post: any) => post.data.tags)));
+  
+
+return tags.flatMap((tag) => {
+    return paginate(
+      posts.filter(({ props }) => tag && props.data.tags?.includes(tag)),
+      {
+        params: { tag },
+        pageSize: 10,
+      }
+    );
+  });
+}) satisfies GetStaticPaths;
+---
+
+<BlogLayout {tag} {posts}>
+
+</BlogLayout>
