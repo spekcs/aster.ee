@@ -8,13 +8,13 @@ import Button from '../components/Button.astro';
 
 
 interface Props {
-  tag?: string | number;
+  tag?: string;
   posts: CollectionEntry<'posts'>[];
 }
 
 const { tag, posts } = Astro.props;
 
-const title = tag ? `Posts tagged with ${tag}` : `Posts`
+const title = tag && !['csmath', 'litphil', 'other'].includes(tag) ? `Posts about ${tag}` : `Posts`;
 
 const pageTitle = "Aster's writings 🪶"
 
@@ -32,12 +32,12 @@ const allTags = Array.from(new Set(postsCollection.filter((post: CollectionEntry
   <div class="mx-auto pb-4 w-full max-w-5xl flex flex-row box-border justify-between">
     <div class="min-w-[66%] flex flex-col">
       <div class="grid grid-cols-3 gap-4">
-        <Button buttonText="Cs/Math" href="/tags/csmath" active={tag === 'csmath'}/>
-        <Button buttonText="Lit/Phil" href="/tags/litphil" active={tag === 'litphil'}/>
-        <Button buttonText="Other" href="/tags/other" active={tag === 'other'}/>
+        <Button buttonText="Cs/Math" href="/tags/csmath" active={tag === 'csmath'} hrefBack="/posts"/>
+        <Button buttonText="Lit/Phil" href="/tags/litphil" active={tag === 'litphil'} hrefBack="/posts"/>
+        <Button buttonText="Other" href="/tags/other" active={tag === 'other'} hrefBack="/posts"/>
       </div>
       <div>
-        <h2 class="text-3xl pt-4">{title}</h2>
+        <h2 class="text-3xl pt-4 font-bold">{title}</h2>
       </div>
       <div>
         <ul class="pt-4">
@@ -48,7 +48,10 @@ const allTags = Array.from(new Set(postsCollection.filter((post: CollectionEntry
     <div class="min-w-[33%]">
       <p class="text-center text-xl font-bold pt-3">Filter by tag:</p>
       <ul class="pl-4 text-lg pt-4">
-        {allTags.map((tag: String) => <li><a href={`/tags/${tag}`}>{tag}</a></li>)}
+        {allTags
+        .sort()
+        .filter((tag) => !['csmath', 'litphil', 'other'].includes(tag))
+        .map((tag: String) => <li><a href={`/tags/${tag}`}>{tag}</a></li>)}
       </ul>
     </div>
   </div>

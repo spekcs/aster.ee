@@ -4,7 +4,7 @@ description: 'Hello gaus'
 draft: false
 created: "never"
 modified: "never"
-tags: ["astro", "blogging", "learning in public"]
+tags: ["astro", "blogging", "learning in public", "csmath", "litphil"]
 ---
 
 Published on: 2022-07-01
