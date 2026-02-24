@@ -1,0 +1,50 @@
+---
+import { type CollectionEntry } from 'astro:content';
+import { getEntry } from 'astro:content';
+
+import BaseLayout from './BaseLayout.astro';
+import PageSelector from '../components/PageSelector.astro';
+import Button from '../components/Button.astro';
+
+
+interface Props {
+  tag?: string | number;
+  posts: CollectionEntry<'posts'>[];
+}
+
+const { tag, posts } = Astro.props;
+
+const title = tag ? `Posts tagged with ${tag}` : `Posts`
+
+const pageTitle = "Aster's writings 🪶"
+
+const blurb = await getEntry('blurbs', 'blog');
+
+---
+
+<BaseLayout pageTitle={pageTitle} blurb={blurb} blahaj={true}>
+
+  <PageSelector page="blog"/>
+
+  <div class="mx-auto pb-4 w-full max-w-5xl flex flex-row box-border justify-between">
+    <div class="min-w-[66%] flex flex-col">
+      <div class="grid grid-cols-3 gap-4">
+        <Button buttonText="Cs/Math" href="/tags/csmath" active={tag === 'csmath'}/>
+        <Button buttonText="Lit/Phil" href="/tags/litphil" active={tag === 'litphil'}/>
+        <Button buttonText="Other" href="/tags/other" active={tag === 'other'}/>
+      </div>
+      <div>
+        <h2>{title}</h2>
+      </div>
+      <div>
+        <ul>
+          {posts.map((post: any) => <li><a href={`/post/${post.id}`}>{post.title}{post.data.title}</a> | {post.data?.description} | {post.id}</li>)}
+        </ul>
+      </div>
+    </div>
+    <div class="min-w-[33%]">
+      <p class="text-center text-xl font-bold pt-3">Filter by tag:</p>
+    </div>
+  </div>
+
+</BaseLayout>

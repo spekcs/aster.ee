@@ -9,7 +9,7 @@ const { page } = Astro.props;
 
 ---
   <div class="grid grid-cols-3 gap-4 mx-auto py-4 w-full max-w-5xl">
-    <Button buttonText="Blog" href="/blog" active={page === "blog"}/>
+    <Button buttonText="Blog" href="/posts" active={page === "blog"}/>
     <Button buttonText="Projects" href="/projects" active={page === "projects"}/>
     <Button buttonText="Stuff" href="/stuff" active={page === "stuff"}/>
   </div>

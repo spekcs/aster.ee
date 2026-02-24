@@ -3,26 +3,26 @@ import { type CollectionEntry, getCollection, getEntry, render } from 'astro:con
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 interface Props {
-  article: CollectionEntry<'posts'>;
+  post: CollectionEntry<'posts'>;
 }
 
 export const getStaticPaths = async () => {
   const posts = await getCollection('posts');
 
-  return posts.map((post) => ({
+  return posts.map((post: any) => ({
     params: { id: post.id },
     props: { post }
   }));
 };
 
-const { article, article: { id }} = Astro.props;
+const { post, post: { id }} = Astro.props;
 
-const entry = await getEntry('posts', id)!;
+const entry = await getEntry('posts', id.replace(/\.[^/.]+$/, ""))!;
 
 const { Content, headings } = await render(entry);
 ---
 
 
-<BaseLayout blahaj={false}>
+<BaseLayout pageTitle={post.data.title} blahaj={false}>
   <Content/> 
 </BaseLayout>
