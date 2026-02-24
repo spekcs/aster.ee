@@ -12,7 +12,7 @@ interface Props {
       };
       props: CollectionEntry<'posts'>;
     }>;
-  };
+    };
 }
 
 const { page } = Astro.props;
@@ -35,9 +35,9 @@ return tags.flatMap((tag) => {
     return paginate(
       posts.filter(({ props }) => tag && props.data.tags?.includes(tag)),
       {
-        params: { tag },
+      params: { tag },
         pageSize: 10,
-      }
+        },
     );
   });
 }) satisfies GetStaticPaths;
