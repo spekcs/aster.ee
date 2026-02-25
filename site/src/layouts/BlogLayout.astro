@@ -14,7 +14,7 @@ interface Props {
 
 const { tag, posts } = Astro.props;
 
-const title = tag && !['csmath', 'litphil', 'other'].includes(tag) ? `Posts about ${tag}` : `Posts`;
+const tag_title = tag && !['csmath', 'litphil', 'other'].includes(tag) ? tag : '';
 
 const pageTitle = "Aster's writings 🪶"
 
@@ -37,7 +37,7 @@ const allTags = Array.from(new Set(postsCollection.filter((post: CollectionEntry
         <Button buttonText="Other" href="/tags/other" active={tag === 'other'} hrefBack="/posts"/>
       </div>
       <div>
-        <h2 class="text-3xl pt-4 font-bold">{title}</h2>
+        {tag_title ? <h2 class="text-3xl pt-4 font-bold">Posts about <span class="text-ctp-green">{tag_title}</span></h2> : <h2 class="text-3xl pt-4 font-bold">Posts</h2>}
       </div>
       <div>
         <ul class="pt-4">
@@ -51,8 +51,13 @@ const allTags = Array.from(new Set(postsCollection.filter((post: CollectionEntry
         {allTags
         .sort()
         .filter((tag) => !['csmath', 'litphil', 'other'].includes(tag))
-        .map((tag: String) => <li><a href={`/tags/${tag}`}>{tag}</a></li>)}
+        .map((t: String) => <li class:list={["hover:text-ctp-mauve hover:underline", t===tag && "text-ctp-mauve"]}><a href={`/tags/${t}`}>{t}</a></li>)}
       </ul>
+      {tag && 
+      <div class="text-center pt-8 hover:text-ctp-mauve">
+        <a class="text-center text-xl font-bold p-2 px-10 border rounded-lg" href={'/posts'}>Clear</a>
+      </div>
+      }
     </div>
   </div>
 
