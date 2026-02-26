@@ -38,7 +38,7 @@ const allTags = Array.from(new Set(postsCollection.filter((post: CollectionEntry
         <Button buttonText="Other" href="/tags/other" active={tag === 'other'} hrefBack="/posts"/>
       </div>
       <div>
-        {tag_title ? <h2 class="text-3xl pt-4 font-bold">Posts about <span class="text-ctp-green">{tag_title}</span></h2> : <h2 class="text-3xl pt-4 font-bold">Posts</h2>}
+        {tag_title ? <h2 class="text-3xl pt-4 font-bold">Posts about <span class="text-green">{tag_title}</span></h2> : <h2 class="text-3xl pt-4 font-bold">Posts</h2>}
       </div>
       <div>
         <ul>
@@ -54,10 +54,10 @@ const allTags = Array.from(new Set(postsCollection.filter((post: CollectionEntry
         {allTags
         .sort()
         .filter((tag) => !['csmath', 'litphil', 'other'].includes(tag))
-        .map((t: String) => <li class:list={["hover:text-ctp-mauve hover:underline", t===tag && "text-ctp-mauve"]}><a href={`/tags/${t}`}>{t}</a></li>)}
+        .map((t: String) => <li class:list={["hover:text-accent hover:underline", t===tag && "text-accent"]}><a href={`/tags/${t}`}>{t}</a></li>)}
       </ul>
       {tag && !['csmath', 'litphil', 'other'].includes(tag) && 
-      <div class="text-center pt-8 hover:text-ctp-mauve">
+      <div class="text-center pt-8 hover:text-accent">
         <a class="text-center text-xl font-bold p-2 px-10 border rounded-lg" href={'/posts'}>Clear</a>
       </div>
       }

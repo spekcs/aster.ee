@@ -8,4 +8,4 @@ interface Props {
 
 const { buttonText, href, active, hrefBack } = Astro.props;
 ---
-<a href={active ? hrefBack ? hrefBack : "/" : href} class:list={["border-surface0 bg-ctp-base  focus-visible:border-accent group block overflow-hidden rounded-xl border shadow-lg p-3 text-center font-bold text-xl transition-all duration-300 hover:border-ctp-mauve", active && "bg-ctp-mauve text-ctp-crust"]}>{buttonText}</a>
+<a href={active ? hrefBack ? hrefBack : "/" : href} class:list={["focus-visible:border-accent group block overflow-hidden rounded-xl border shadow-lg p-3 text-center font-bold text-xl transition-all duration-300 hover:border-accent", active && "bg-accent text-text-dark"]}>{buttonText}</a>
