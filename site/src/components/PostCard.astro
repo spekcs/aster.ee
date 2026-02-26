@@ -1,0 +1,25 @@
+---
+interface Props {
+  id: string
+  title: string,
+  description?: string,
+  created_at: string,
+  tags: Array<string>
+};
+
+const {id, title, description, created_at, tags} = Astro.props;
+---
+<div class="py-4">
+  <div class="flex justify-between">
+    <a href=`/post/${id}` class="text-ctp-mauve hover:underline font-bold text-2xl">{title}</a>
+    <p class="my-1">{created_at}</p>
+  </div>
+  <div>
+    {description && <p>{description}</p>}
+    <div class="flex">
+      {tags
+      .filter((tag) => !['csmath', 'litphil', 'other'].includes(tag))
+      .map((tag) => <a class="pr-4 hover:underline hover:text-ctp-mauve" href={`/tags/${tag}`}>#{tag}</a>)}
+    </div>
+  </div>
+</div>

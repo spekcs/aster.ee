@@ -5,6 +5,7 @@ import { getEntry } from 'astro:content';
 import BaseLayout from './BaseLayout.astro';
 import PageSelector from '../components/PageSelector.astro';
 import Button from '../components/Button.astro';
+import PostCard from '../components/PostCard.astro';
 
 
 interface Props {
@@ -40,8 +41,10 @@ const allTags = Array.from(new Set(postsCollection.filter((post: CollectionEntry
         {tag_title ? <h2 class="text-3xl pt-4 font-bold">Posts about <span class="text-ctp-green">{tag_title}</span></h2> : <h2 class="text-3xl pt-4 font-bold">Posts</h2>}
       </div>
       <div>
-        <ul class="pt-4">
-          {posts.filter((post) => !post.data.draft).map((post: any) => <li><a href={`/post/${post.id}`}>{post.title}{post.data.title}</a> | {post.data?.description} | {post.id}</li>)}
+        <ul>
+          {posts
+          .filter((post) => !post.data.draft)
+          .map((post: any) =><li><PostCard id={post.id} title={post.data.title} description={post.data?.description} tags={post.data.tags} created_at={post.data.created}/></li>)}
         </ul>
       </div>
     </div>
@@ -53,7 +56,7 @@ const allTags = Array.from(new Set(postsCollection.filter((post: CollectionEntry
         .filter((tag) => !['csmath', 'litphil', 'other'].includes(tag))
         .map((t: String) => <li class:list={["hover:text-ctp-mauve hover:underline", t===tag && "text-ctp-mauve"]}><a href={`/tags/${t}`}>{t}</a></li>)}
       </ul>
-      {tag && 
+      {tag && !['csmath', 'litphil', 'other'].includes(tag) && 
       <div class="text-center pt-8 hover:text-ctp-mauve">
         <a class="text-center text-xl font-bold p-2 px-10 border rounded-lg" href={'/posts'}>Clear</a>
       </div>

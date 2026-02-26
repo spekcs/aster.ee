@@ -5,28 +5,40 @@
   --font-sans: 'Atkinson Hyperlegible', sans-serif;
   --font-mono: 'Maple Mono', monospace;
 
-  --text-accent: --text-ctp-mauve;
+  --color-accent: var(--color-ctp-mauve);
+  
+  --color-purple: var(--color-ctp-mauve);
+  --color-green: var(--color-ctp-green);
+  --color-yellow: var(--color-ctp-yellow);
+
+  --color-text: var(--color-ctp-text);
+  --color-text-dark: var(--color-ctp-crust);
+
+  --color-background: var(--color-ctp-base);
 }
 
-.text-accent {
-  @apply text-ctp-mauve
+@layer theme {
+  [data-theme="nord"] {
+    --color-accent: green;
+  }
 }
+
 
 body {
-  @apply bg-ctp-base text-ctp-text selection:bg-ctp-mauve selection:text-ctp-crust;
+  @apply bg-background text-text selection:bg-purple selection:text-text-dark;
 }
 
 .enby-text {
   background: linear-gradient(
     80deg,
-    var(--color-ctp-text) 0%,
-    var(--color-ctp-text) 30%,
+    var(--color-text) 0%,
+    var(--color-text) 30%,
     #FCF434,
     #FFFFFF,
     #9C59D1,
     #2C2C2C,
-    var(--color-ctp-text) 80%,
-    var(--color-ctp-text) 100%
+    var(--color-text) 80%,
+    var(--color-text) 100%
   );
   background-size: 600% 100%;
   background-repeat: no-repeat;
@@ -71,22 +83,22 @@ body {
   @apply text-xl;
 
   :is(h2) {
-    @apply text-ctp-mauve;
+    @apply text-purple;
     @apply text-3xl;
     @apply pb-4;
   }
 
   :is(a) {
     @apply underline;
-    @apply text-ctp-mauve;
+    @apply text-purple;
   }
 
   :is(em, strong) {
-    @apply text-ctp-yellow;
+    @apply text-yellow;
   }
 
   :is(p) {
-    @apply pb-4;
+    @apply pb-2;
   }
 
   :is(hr) {
@@ -94,7 +106,7 @@ body {
   }
 
   :is(ul) {
-    @apply text-ctp-green;
+    @apply text-green;
     @apply text-sm
   }
 
